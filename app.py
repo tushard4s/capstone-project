@@ -27,5 +27,20 @@ def add_note():
     response = requests.post(SUPABASE_URL, headers=HEADERS, json=data)
     return jsonify(response.json()), 201
 
+@app.route('/api/notes/<int:note_id>', methods=['DELETE'])
+def delete_note(note_id):
+    # Logic: DELETE a note from Supabase
+    delete_url = f"{SUPABASE_URL}?id=eq.{note_id}"
+    response = requests.delete(delete_url, headers=HEADERS)
+    # Supabase typically returns 204 No Content for successful deletes
+    if response.status_code == 204:
+        return '', 204
+    
+    # If there's an error, it might return a JSON response
+    try:
+        return jsonify(response.json()), response.status_code
+    except ValueError:
+        return jsonify({"error": "Failed to delete"}), response.status_code
+
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
