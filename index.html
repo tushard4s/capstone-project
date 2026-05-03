@@ -4,13 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RishiNotes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Hello JS!</h1>
-    <script src="./script.js"></script>
+    <header>
+        <h1>RishiNotes</h1>
+        <!-- Search and Filter Requirement -->
+        <input type="text" id="searchInput" placeholder="Search notes by title...">
+    </header>
 
+    <main>
+        <section class="form-section">
+            <h2>Create a Note</h2>
+            <form id="noteForm">
+                <input type="text" id="noteTitle" placeholder="Note Title">
+                <textarea id="noteContent" placeholder="Write your note here..." rows="4"></textarea>
+                <button type="submit">Save Note</button>
+            </form>
+            <p id="errorMessage" class="error hidden">Title cannot be empty!</p>
+        </section>
+
+        <section class="notes-section">
+            <h2>Your Notes</h2>
+            <!-- JavaScript will inject notes into this container -->
+            <div id="notesContainer" class="notes-grid"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 
 </html>

@@ -39,7 +39,7 @@ The application follows a standard Request-Response cycle:
 ---
 
 ## How to Run
-1. Clone the repository: `git clone https://github.com/tushard4s/capstone-project.git`
+1. Clone the repository: `git clone [https://github.com/tushard4s/capstone-project]`
 2. Install dependencies: `pip install flask requests`
 3. Run the backend: `python app.py`
 4. Open `index.html` in your browser.
